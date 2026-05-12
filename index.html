@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juggling Clown</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #282c34;
+            color: #61dafb;
+            font-family: monospace;
+            font-size: 24px;
+        }
+        pre {
+            text-align: center;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+<body>
+
+<pre id="clown-container"></pre>
+
+<script>
+    const frames = [
+`
+      O
+         
+    O   O
+   _.-.-._
+  ( o _ o )
+   \\  -  /
+   /  |  \\
+  /   |   \\
+`,
+`
+         O
+      O  
+        O
+   _.-.-._
+  ( o _ o )
+   \\  -  /
+   /  |  \\
+  /   |   \\
+`,
+`
+    O    
+          O
+      O  
+   _.-.-._
+  ( o _ o )
+   \\  -  /
+   /  |  \\
+  /   |   \\
+`,
+`
+         
+    O    O
+      O  
+   _.-.-._
+  ( o _ o )
+   \\  -  /
+   /  |  \\
+  /   |   \\
+`,
+`
+      O  
+         O
+    O    
+   _.-.-._
+  ( o _ o )
+   \\  -  /
+   /  |  \\
+  /   |   \\
+`
+    ];
+
+    let currentFrame = 0;
+    const container = document.getElementById('clown-container');
+
+    function animate() {
+        container.textContent = frames[currentFrame];
+        currentFrame = (currentFrame + 1) % frames.length;
+    }
+
+    // Initial render
+    animate();
+    
+    // Start animation loop
+    setInterval(animate, 300);
+</script>
+
+</body>
+</html>
